@@ -4,17 +4,16 @@ public class singleLinkedList {
         String data;
         Node next;
         
-        //constructor
         Node(String data){
             this.data = data;
             this.next = null;
         }
     }
     
-    
-    // add to ist position
+    // addFirst 
     public void addFirst(String data){
         Node newNode = new Node(data);
+        
         if(head == null){
             head = newNode;
             return;
@@ -22,11 +21,20 @@ public class singleLinkedList {
         
         newNode.next = head;
         head = newNode;
+        
     }
     
-    // add to last position
+    // deleteFirst
+    public void deleteFirst(){
+        if(head == null){                       //  if the list has no element.                                    
+            System.out.println("list is empty");
+            return;
+        }
+        head = head.next;
+    }
+    
+    // addLast
     public void addLast(String data){
-        
         Node newNode = new Node(data);
         
         if(head == null){
@@ -35,30 +43,63 @@ public class singleLinkedList {
         }
         
         Node currentNode = head;
-        
         while(currentNode.next != null){
             currentNode = currentNode.next;
         }
         
         currentNode.next = newNode;
-        
     }
     
-    public void print(){
+    // deleteLast
+    public void deleteLast(){
+        if(head == null){                       //  if the list has no element.
+            System.out.println("list is empty");
+            return;
+        }
+        
+        if(head.next == null){                  //  if the list has only 1 element.
+            head = null;
+            return;
+        }
+        
+        Node currentNode = head;
+        while(currentNode.next.next!= null){
+            currentNode = currentNode.next;
+        }
+        currentNode.next = null;
+    }
+    
+    //printLinkedList
+    public void printList(){
         Node currentNode = head;
         while(currentNode != null){
             System.out.print(currentNode.data + "->");
             currentNode = currentNode.next;
         }
-        System.out.print("null");
+        System.out.println("null");
     }
- 
+    
     public static void main(String args[]) {
-      singleLinkedList LL = new singleLinkedList();
-      LL.addFirst("is");
-      LL.addFirst("This");
-      LL.addLast("a");
-      LL.addLast("Linked List");
-      LL.print();
+        singleLinkedList newList = new singleLinkedList();
+        newList.addFirst("this");
+        newList.addLast("is");
+        newList.addLast("a");
+        newList.addLast("List");
+        newList.printList();
+        newList.deleteFirst();
+        newList.printList();
+        newList.addFirst("this");
+        newList.printList();
+        newList.deleteFirst();
+        newList.deleteLast();
+        newList.printList();
+        
     }
 }
+
+
+// Output: 
+// this->is->a->List->null
+// is->a->List->null
+// this->is->a->List->null
+// is->a->null
