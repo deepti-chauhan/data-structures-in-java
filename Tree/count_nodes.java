@@ -1,3 +1,5 @@
+
+// Time Complexity : O(N)
 public static int countNodes(Node root){
         if(root == null){
             return 0;
