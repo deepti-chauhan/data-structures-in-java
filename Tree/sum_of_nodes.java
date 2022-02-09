@@ -8,5 +8,5 @@ public static int sumOfNodes(Node root){
   
   return leftsubTree + rightsubTree + node.data;
 }
-
+// Time Complexity : O(N)
 // return the sum of nodes in a binary tree using recursion.
