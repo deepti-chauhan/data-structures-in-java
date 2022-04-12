@@ -4,6 +4,10 @@
 */
 
 public void reverse(){
+  
+  //base case
+  if(head == null || head.next == null){ return }
+  
   Node temp = null;                 
   Node curr = head;                 
   
