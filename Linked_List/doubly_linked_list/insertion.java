@@ -1,6 +1,8 @@
+package DLL;
+
 public class doubly_linked_list {
 
-    Node head;
+    static Node head;
 
     class Node { // Node class
         int data;
@@ -22,7 +24,7 @@ public class doubly_linked_list {
      * -> addBeforeNode
      */
 
-    void addFirst(int data) {
+    public void addFirst(int data) {
         Node newNode = new Node(data); // initialise the new Node
 
         newNode.next = head;
@@ -35,7 +37,7 @@ public class doubly_linked_list {
         head = newNode; // new Node is our head now.
     }
 
-    void addLast(int data) {
+    public void addLast(int data) {
 
         Node newNode = new Node(data);
 
@@ -56,7 +58,7 @@ public class doubly_linked_list {
         newNode.prev = currNode;
     }
 
-    void addAfterNode(Node prevNode, int data) {
+    public void addAfterNode(Node prevNode, int data) {
         Node newNode = new Node(data);
 
         if (prevNode == null) {
@@ -73,7 +75,7 @@ public class doubly_linked_list {
 
     }
 
-    void addBeforeNode(Node nextNode, int data) {
+    public void addBeforeNode(Node nextNode, int data) {
         Node newNode = new Node(data);
 
         if (nextNode == null) {
@@ -89,4 +91,24 @@ public class doubly_linked_list {
         }
     }
 
+    public void printList(Node head) {
+        Node curr = head;
+        while (curr != null) {
+            System.out.println(curr.data + "->");
+            curr = curr.next;
+        }
+        System.out.println("null");
+    }
+
+    public static void main(String args[]) {
+        doubly_linked_list myList = new doubly_linked_list();
+        myList.addFirst(1);                         // 1->null
+        myList.addLast(10);                         // 1->10->null    
+        myList.addAfterNode(head, 2);               // 1->10->2->null
+        muList.addBeforeNode(head.next, 3);         // 1->3->2->10->null
+        myList.printList(head);
+    }
 }
+
+
+// output : 1->3->2->10
