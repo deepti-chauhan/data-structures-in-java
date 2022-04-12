@@ -3,6 +3,8 @@
   -> delete the head
   -> delete the end
   -> delete the middle
+  
+  TC = O(1)  SC = O(1)
 */
 
 public void deleteNode(Node currNode){
