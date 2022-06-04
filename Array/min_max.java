@@ -1,3 +1,10 @@
+/*
+    TC - O(n)
+    SC - O(1)
+    
+    using linear search.
+*/
+
 public class MinMax {
     static class Pair{
         int min = Integer.MAX_VALUE;
